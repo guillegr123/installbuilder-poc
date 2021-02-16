@@ -1,10 +1,10 @@
 <project>
     <shortName>commio</shortName>
     <fullName>comm.io</fullName>
-    <version>0.0.5405</version>
+    <version>2.0.4</version>
     <installerFilename>${project.shortName}-${project.version}-${platform_name}-installer.${platform_exec_suffix}</installerFilename>
-    <readmeFile>C:\Users\Guille\Src\Work\2600Hz\comm.io\InstallBuilder\readme.txt</readmeFile>
-    <licenseFile>C:\Users\Guille\Src\Work\2600Hz\comm.io\InstallBuilder\license.txt</licenseFile>
+    <readmeFile>C:/Users/Guille/Src/Work/2600Hz/Src/commio/installbuilder-poc/readme.txt</readmeFile>
+    <licenseFile>C:/Users/Guille/Src/Work/2600Hz/Src/commio/installbuilder-poc/license.txt</licenseFile>
     <allowLanguageSelection>1</allowLanguageSelection>
     <componentList>
         <component>
@@ -14,20 +14,19 @@
             <downloadable>1</downloadable>
             <selected>1</selected>
             <show>1</show>
-            <url>https://packages.2600hz.com/desktop/staging/artifacts/sandbox/</url>
             <desktopShortcutList>
                 <shortcut>
-                    <comment>Demo Application</comment>
+                    <comment>comm.io</comment>
                     <exec>${installdir}/bin/demo.sh</exec>
                     <icon>${installdir}/bin/logo.png</icon>
-                    <name>Demo Project</name>
+                    <name>comm.io</name>
                     <path></path>
                     <platforms>all</platforms>
                     <runAsAdmin>0</runAsAdmin>
                     <runInTerminal>0</runInTerminal>
-                    <windowsExec>${installdir}/bin/demo.bat</windowsExec>
+                    <windowsExec>${installdir}/comm.io.exe</windowsExec>
                     <windowsExecArgs></windowsExecArgs>
-                    <windowsIcon>${installdir}/bin/logo.ico</windowsIcon>
+                    <windowsIcon></windowsIcon>
                     <windowsPath></windowsPath>
                 </shortcut>
             </desktopShortcutList>
@@ -37,29 +36,25 @@
                     <destination>${installdir}</destination>
                     <name>programfiles</name>
                     <platforms>all</platforms>
-                    <distributionFileList>
-                        <distributionDirectory>
-                            <origin>C:/Program Files/VMware InstallBuilder Professional 20.12.0/demo/docs</origin>
-                        </distributionDirectory>
-                    </distributionFileList>
                 </folder>
                 <folder>
                     <description>Program Files</description>
-                    <destination>${installdir}/bin</destination>
+                    <destination>${installdir}</destination>
                     <name>programfileswin</name>
-                    <platforms>windows</platforms>
+                    <platforms>windows-x64</platforms>
+                    <actionList>
+                        <unzip>
+                            <addToUninstaller>0</addToUninstaller>
+                            <destinationDirectory>${installdir}</destinationDirectory>
+                            <zipFile>${installdir}/comm.io-2.0.4-win.zip</zipFile>
+                        </unzip>
+                        <deleteFile>
+                            <path>${installdir}/comm.io-2.0.4-win.zip</path>
+                        </deleteFile>
+                    </actionList>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>C:/Program Files/VMware InstallBuilder Professional 20.12.0/demo/bin/demo.txt</origin>
-                        </distributionFile>
-                        <distributionFile>
-                            <origin>C:/Program Files/VMware InstallBuilder Professional 20.12.0/demo/bin/postinstallation.bat</origin>
-                        </distributionFile>
-                        <distributionFile>
-                            <origin>C:/Program Files/VMware InstallBuilder Professional 20.12.0/demo/bin/logo.ico</origin>
-                        </distributionFile>
-                        <distributionFile>
-                            <origin>C:/Program Files/VMware InstallBuilder Professional 20.12.0/demo/bin/SED.EXE</origin>
+                            <origin>C:/Users/Guille/Src/Work/2600Hz/Src/commio/commio-core/release/comm.io-2.0.4-win.zip</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -105,11 +100,13 @@
             </startMenuShortcutList>
         </component>
     </componentList>
-    <postInstallationScript>${installdir}/bin/postinstallation.sh</postInstallationScript>
-    <postInstallationScriptArguments>${installdir}</postInstallationScriptArguments>
+    <componentsUrl>https://akiaic7jpnheblxj5mla-curso-aws.s3.amazonaws.com/</componentsUrl>
+    <compressionAlgorithm>lzma-ultra</compressionAlgorithm>
     <enableRollback>1</enableRollback>
+    <enableSslSupport>1</enableSslSupport>
     <enableTimestamp>1</enableTimestamp>
     <projectSchemaVersion>1.0</projectSchemaVersion>
+    <showDownloadableComponentsProxyPage>0</showDownloadableComponentsProxyPage>
     <startMenuGroupName>${project.fullName}</startMenuGroupName>
     <vendor>Test Company</vendor>
     <parameterList>
@@ -117,8 +114,8 @@
             <name>installdir</name>
             <description>Installer.Parameter.installdir.description</description>
             <explanation>Installer.Parameter.installdir.explanation</explanation>
-            <value>${platform_install_prefix}/${project.shortName}-${project.version}</value>
-            <default>${platform_install_prefix}/${project.shortName}-${project.version}</default>
+            <value>${platform_install_prefix}/${project.shortName}</value>
+            <default>${platform_install_prefix}/${project.shortName}</default>
             <allowEmptyValue>0</allowEmptyValue>
             <ask>yes</ask>
             <cliOptionName>prefix</cliOptionName>
@@ -129,8 +126,8 @@
     </parameterList>
     <platformOptionsList>
         <platformOptions>
-            <postInstallationScript>${installdir}\bin\postinstallation.bat</postInstallationScript>
-            <postInstallationScriptArguments>${installdir.dos}</postInstallationScriptArguments>
+            <postInstallationScript></postInstallationScript>
+            <postInstallationScriptArguments></postInstallationScriptArguments>
             <platform>windows</platform>
         </platformOptions>
     </platformOptionsList>
