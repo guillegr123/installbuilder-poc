@@ -58,12 +58,23 @@
                 </folder>
                 <folder>
                     <description>Program Files</description>
-                    <destination>${installdir}/bin</destination>
+                    <destination>${installdir}</destination>
                     <name>programfilesunix</name>
-                    <platforms>linux linux-x64 linux-ia64 osx solaris-sparc solaris-intel linux-ppc linux-s390 freebsd freebsd4 freebsd6 freebsd6-x64 openbsd3 hpux aix irix-n32</platforms>
+                    <platforms>linux</platforms>
                     <distributionFileList>
                         <distributionDirectory allowWildcards="1">
                             <origin>files/linux/*</origin>
+                        </distributionDirectory>
+                    </distributionFileList>
+                </folder>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}</destination>
+                    <name>programfilesmac</name>
+                    <platforms>osx</platforms>
+                    <distributionFileList>
+                        <distributionDirectory>
+                            <origin>files/mac</origin>
                         </distributionDirectory>
                     </distributionFileList>
                 </folder>
@@ -94,10 +105,12 @@
     </componentList>
     <componentsUrl>https://akiaic7jpnheblxj5mla-curso-aws.s3.amazonaws.com/</componentsUrl>
     <compressionAlgorithm>lzma-ultra</compressionAlgorithm>
+    <createOsxBundleZip>1</createOsxBundleZip>
     <disableSplashScreen>1</disableSplashScreen>
     <enableRollback>1</enableRollback>
     <enableSslSupport>1</enableSslSupport>
     <enableTimestamp>1</enableTimestamp>
+    <osxApplicationBundleIdentifier>com.2600hz.commio</osxApplicationBundleIdentifier>
     <projectSchemaVersion>1.0</projectSchemaVersion>
     <saveRelativePaths>1</saveRelativePaths>
     <showDownloadableComponentsProxyPage>0</showDownloadableComponentsProxyPage>
